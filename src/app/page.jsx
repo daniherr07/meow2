@@ -4,16 +4,20 @@
 import Image from "next/image";
 import styles from "./page.module.css";
 import { useState, useEffect } from "react";
+import useSound from 'use-sound';
 
 export default function Home() {
   const { width, height } = useWindowSize()
   const [posX, setPosX] = useState("0px")
   const [posY, setPosY] = useState("-120px")
 
+  const [playSound] = useSound('meow.mp3');
+
 
   
 
   const llamarGato =  async () => {
+    playSound()
     const randomPositionXFrom = getRandomArbitrary(0, width) + "px"
 
     setPosX(randomPositionXFrom)
