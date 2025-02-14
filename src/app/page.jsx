@@ -12,12 +12,14 @@ export default function Home() {
   const [posY, setPosY] = useState("-120px")
 
   const [playSound] = useSound('meow.mp3');
+  const [counter, setCounter] = useState(0)
 
 
   
 
   const llamarGato =  async () => {
     playSound()
+    setCounter(counter + 1)
     const randomPositionXFrom = getRandomArbitrary(0, width) + "px"
 
     setPosX(randomPositionXFrom)
@@ -40,6 +42,7 @@ export default function Home() {
 
   return (
     <div className={styles.page}>
+      <p>Cantidad de Veces Llamado: {counter}</p>
       <p className={styles.buttonMeow} onClick={llamarGato}>Haz clic para llamar al gato :3</p>
 
         <Image 
